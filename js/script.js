@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
         addCard: function (card) {
             this.element.querySelector('ul').appendChild(card.element);
         },
-        removeCard: function () {
+        removeColumn: function () {
             this.element.parentNode.removeChild(this.element);
         }
     }

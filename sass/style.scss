@@ -1,0 +1,68 @@
+body {
+    background-image: url('/images/office.jpg');
+    background-size: cover;
+}
+.board {
+    width: 100%;
+    // height: 100vh;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    // outline: 1px dashed yellow;
+    h1 {
+        color: white;
+    }
+    .column-container {
+        min-width: 200px;
+        padding: 10px;
+        display: flex;
+        // outline: 1px solid red;
+    }
+    .column {
+        // display: flex;
+        // flex-direction: column;
+        background-color: lightgrey;
+        box-shadow: .1px .1px 5px rgba(0,0,0,.7);
+        border-radius: 5px;
+        // border: 1px solid green;
+        margin: 1px 5px;
+        min-width: 200px;
+        padding: 5px 10px;
+        h2 {
+            text-align: center;
+            padding: 0;
+            margin: 0;
+            text-transform: capitalize;
+        }
+        .column-card-list {
+            list-style-type: none;
+            padding:0;
+            min-height: 10px;
+        }
+        .card {
+            background-color: white;
+            // border: 1px solid blue;
+            border-radius: 3px;
+            box-shadow: 0px 1px 1px 0px rgba(31,29,31,1);
+            cursor: pointer;
+            padding: 1px 5px;
+            margin: 10px auto;
+            .btn-delete {
+                background-color: transparent;
+                border: none;
+                float: right;
+                &:hover{
+                    background-color: darkgrey;
+                }
+            }
+        }
+    }
+    button {
+        border-radius: 2px;
+        padding: 2px 10px;
+        border: none;
+        cursor: pointer;
+
+    }
+}

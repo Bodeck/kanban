@@ -1,0 +1,72 @@
+body {
+  background-image: url("/images/office.jpg");
+  background-size: cover;
+}
+
+.board {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.board h1 {
+  color: white;
+}
+
+.board .column-container {
+  min-width: 200px;
+  padding: 10px;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.board .column {
+  background-color: lightgrey;
+  box-shadow: 0.1px 0.1px 5px rgba(0, 0, 0, 0.7);
+  border-radius: 5px;
+  margin: 1px 5px;
+  min-width: 200px;
+  padding: 5px 10px;
+}
+
+.board .column h2 {
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  text-transform: capitalize;
+}
+
+.board .column .column-card-list {
+  list-style-type: none;
+  padding: 0;
+  min-height: 10px;
+}
+
+.board .column .card {
+  background-color: white;
+  border-radius: 3px;
+  box-shadow: 0px 1px 1px 0px #1f1d1f;
+  cursor: pointer;
+  padding: 1px 5px;
+  margin: 10px auto;
+}
+
+.board .column .card .btn-delete {
+  background-color: transparent;
+  border: none;
+  float: right;
+}
+
+.board .column .card .btn-delete:hover {
+  background-color: darkgrey;
+}
+
+.board button {
+  border-radius: 2px;
+  padding: 2px 10px;
+  border: none;
+  cursor: pointer;
+}
+/*# sourceMappingURL=style.css.map */

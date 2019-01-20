@@ -4,27 +4,29 @@
 <head>
     <meta charset="utf-8">
     <title>Kanban board</title>
-    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" href="vendor/normalize.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
     <div id="board" class="board">
         <h1>Kanban board</h1>
-        <button class="create-column">Add a column</button>
+        <button class="create-column"><i class="fas fa-plus"></i> Add a column</button>
         <div class="column-container"></div>
     </div>
     <script id="column-template" type="x-tmpl-mustache">
         <div class="column">
             <h2 class="column-title">{{ name }}</h2>
             <ul id={{ id }} class="column-card-list"></ul>
-            <button class="btn-delete">X</button>
-            <button class="add-card">Add a card</button>
+            <button class="btn-delete"><i class="fas fa-trash"></i></button>
+            <button class="add-card"><i class="fas fa-plus"></i> Add a card</button>
         </div>
     </script>
     <script id="card-template" type="x-tmpl-mustache">
         <div class="card">
-            <p class="card-description">{{description}}</p>
             <button class="btn-delete">x</button>
+            <p class="card-description">{{description}}</p>
         </div>
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
