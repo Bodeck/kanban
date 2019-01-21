@@ -1,6 +1,7 @@
 body {
     background-image: url('/images/office.jpg');
     background-size: cover;
+    height: 100vh;
 }
 .board {
     width: 100%;
@@ -12,6 +13,9 @@ body {
     // outline: 1px dashed yellow;
     h1 {
         color: white;
+        background-color: rgba(0,0,0,.4);
+        margin-top: 0;
+        padding: 10px;
     }
     .column-container {
         min-width: 200px;
@@ -46,12 +50,21 @@ body {
             border-radius: 3px;
             box-shadow: 0px 1px 1px 0px rgba(31,29,31,1);
             cursor: pointer;
-            padding: 1px 5px;
+            // padding: 1px 5px;
             margin: 10px auto;
+            .card-description {
+                padding: 5px;
+            }
+            &:hover > .btn-delete {
+                opacity: 1;
+            }
             .btn-delete {
+                opacity: 0;
                 background-color: transparent;
                 border: none;
+                border-radius: 50%;
                 float: right;
+                padding: 0 4px;
                 &:hover{
                     background-color: darkgrey;
                 }
