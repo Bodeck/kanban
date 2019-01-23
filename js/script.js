@@ -20,12 +20,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function Column(name) {
         var self = this;
-        this.id = randomString();
+        this.id = idRegister.addId();
         this.name = name;
         this.element = generateTemplate('column-template', { name: this.name, id: this.id });
         this.element.querySelector('.column').addEventListener('click', function (event) {
             if (event.target.classList.contains('btn-delete')) {
                 self.removeColumn();
+                idRegister.removeId(self.id);
             }
             if (event.target.classList.contains('add-card')) {
                 self.addCard(new Card(prompt('Enter the name of the card')));
@@ -45,12 +46,13 @@ document.addEventListener('DOMContentLoaded', () => {
     function Card(description) {
         var self = this;
         this.description = description;
-        this.id = randomString();
+        this.id = idRegister.addId();
         this.element = generateTemplate('card-template', { description: this.description }, 'li');
         this.element.querySelector('.card').addEventListener('click', function(event){
             event.stopPropagation();
             if (event.target.classList.contains('btn-delete')) {
                 self.removeCard();
+                idRegister.removeId(self.id);
             }
         })
     }
@@ -82,6 +84,22 @@ document.addEventListener('DOMContentLoaded', () => {
             group: 'kanban',
             sort: true
         })
+    }
+
+    var idRegister = {
+        items: [],
+        addId: function() {
+            var id
+            do {
+                id = randomString();
+            } while (this.items.indexOf(id) !== -1);
+            this.items.push(id);
+            return id
+        },
+        removeId: function(id) {
+            var index = this.items.indexOf(id);
+            this.items.splice(index, 1);
+        }
     }
 
     var todoColumn = new Column('To do');
