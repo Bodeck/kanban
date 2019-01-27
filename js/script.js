@@ -26,7 +26,6 @@ document.addEventListener('DOMContentLoaded', () => {
         this.element.querySelector('.column').addEventListener('click', function (event) {
             if (event.target.classList.contains('btn-delete')) {
                 self.removeColumn();
-                idRegister.removeId(self.id);
             }
             if (event.target.classList.contains('add-card')) {
                 self.addCard(new Card(prompt('Enter the name of the card')));
@@ -39,6 +38,10 @@ document.addEventListener('DOMContentLoaded', () => {
             this.element.querySelector('ul').appendChild(card.element);
         },
         removeColumn: function () {
+            idRegister.removeId(this.id);
+            this.element.querySelectorAll('.card').forEach(function(el){
+                idRegister.removeId(el.id);
+            })
             this.element.parentNode.removeChild(this.element);
         }
     }
@@ -47,12 +50,11 @@ document.addEventListener('DOMContentLoaded', () => {
         var self = this;
         this.description = description;
         this.id = idRegister.addId();
-        this.element = generateTemplate('card-template', { description: this.description }, 'li');
+        this.element = generateTemplate('card-template', { description: this.description, id: this.id }, 'li');
         this.element.querySelector('.card').addEventListener('click', function(event){
             event.stopPropagation();
             if (event.target.classList.contains('btn-delete')) {
                 self.removeCard();
-                idRegister.removeId(self.id);
             }
         })
     }
@@ -60,6 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
     Card.prototype = {
         removeCard: function () {
             this.element.parentNode.removeChild(this.element);
+            idRegister.removeId(this.id);
         }
     }
 
